@@ -3,35 +3,79 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - The Brownie Bakery</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>*@
+
+    <header>
+        <nav>
+            <div class="row clearfix">
+                <img src="~/images/Logo.png" class="logo">
+
+                <ul class="main-nav animated slideInDown" id="Check-Class">
+                    <li><a href="#">Sign Up</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">About US</a></li>
+                </ul>
+
+                <a href="#" class="mobile-navigation" onclick="slideshow()">
+                    <i class="fa fa-bars"> </i>
+                </a>
+            </div>
+        </nav>
+
+        <div class="main-content-headings">
+            <h1> WELCOME TO THE WORLD OF <span>DESSERTS</span></h1>
+            <a href="#" class="btn btn-ClicktoOrder">Order Now</a>
+        </div>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </header>
+
+    <script type="text/javascript">
+
+	function slideshow(){
+		var x= document.getElementById('Check-Class');
+		if (x.style.display === "none") {
+			x.style.display="block";
+		}else{
+			x.style.display="none";
+		}
+	}
+
+    </script>
+
+    <div>
+        <footer class="TradeMark">
+            <p>2020 &copy; The Brownie Bakery By ADITYA BHATT</p>
         </footer>
     </div>
 
