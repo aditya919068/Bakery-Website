@@ -1,24 +1,160 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+body {
+    font-size: 20px;
+    overflow-x: hidden;
+    color: white;
+    font-family: 'Caladea', serif;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+header {
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('../images/HomePage_Image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+.clearfix:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height: 0px;
+    clear: both;
 }
+
+.row {
+    max-width: 1500px;
+    margin: 3 auto;
+}
+
+.logo {
+    height: 200px;
+    float: left;
+    margin-top: 10px;
+}
+
+.main-nav {
+    float: right;
+    margin-top: 50px;
+}
+
+    .main-nav li {
+        display: inline-block;
+        list-style: none;
+        margin-left: 50px;
+    }
+
+        .main-nav li a {
+            padding: 5px 0;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 90%;
+            font-weight: 100;
+        }
+
+            .main-nav li a:hover {
+                border-bottom: 2px solid #fff;
+            }
+
+.main-content-headings {
+    width: 1500px;
+    position: absolute;
+    top: 50%;
+    left: 53%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    color: #fff;
+    font-size: 195%;
+    word-spacing: 5px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: lighter;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 50px;
+    font-weight: lighter;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 1500px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+    margin-top: 20px;
+}
+
+.btn-ClicktoOrder {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+    .btn-ClicktoOrder:hover {
+        background-color: #1B663F;
+    }
+
+.mobile-navigation {
+    display: none;
+}
+
+.TradeMark {
+    display: inline-block;
+    position: fixed;
+    color: white;
+    font-size: 17px;
+    bottom: 0;
+    left: 40px;
+    font-weight: 700;
+}
+
+/* Responsive Queries */
+
+@media only screen and (max-width: 1420px) {
+    .main-content-headings {
+        width: 100%;
+        padding: 0 2%;
+    }
+
+    @media only screen and (max-width: 1108px) {
+        .main-nav {
+            display: none;
+        }
+
+        .mobile-navigation {
+            display: inline-block;
+            color: #fff;
+            float: right;
+            margin-top: 30px;
+            margin-right: 20px;
+        }
+
+        .main-nav {
+            float: left;
+        }
+
+            .main-nav li {
+                display: block;
+                margin-top: 10px
+            }
+    }
+
+    @media only screen and (max-width: 998px) {
+        h1 {
+            font-size: 175%;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        h1 {
+            font-size: 145%;
+        }
+    }
