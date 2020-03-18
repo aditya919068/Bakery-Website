@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Brownie Bakery</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Caladea&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" sizes="107x107" href="images\icon.ico">
+</head>
+<body>
+<header>
+	<nav>
+		<div class="row clearfix">
+			<img src="images\Logo.png" class="logo">
+
+			<ul class="main-nav animated slideInDown" id="Check-Class">
+				<li><a href="#">Sign Up</a></li>
+				<li><a href="#">Terms & Conditions</a></li>
+				<li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">About US</a></li>
+			</ul>
+
+			<a href="#" class="mobile-navigation" onclick="slideshow()">
+				<i class="fa fa-bars"> </i>
+			</a>
+		</div>
+	</nav>
+
+	<div class="main-content-headings">
+	<h1> WELCOME TO THE WORLD OF <span>DESSERTS</span></h1>
+	<a href="#" class="btn btn-ClicktoOrder">Order Now</a>
+	</div>
+
+</header>
+
+<script type="text/javascript">
+	
+	function slideshow(){
+		var x= document.getElementById('Check-Class');
+		if (x.style.display === "none") {
+			x.style.display="block";
+		}else{
+			x.style.display="none";
+		}
+	}
+
+</script>
+
+  <div>
+      <footer class="TradeMark">
+        <p>2020 &copy; The Brownie Bakery By ADITYA BHATT</p>
+        </footer>
+  </div>
+</body>
+</html>
