@@ -1,0 +1,38 @@
+﻿@model  App.Models.SignUpModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SignUp</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Caladea&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/mycss")
+</head>
+<body class="signup-body">
+    <div class="login-page">
+        <div class="form">
+            @using (Html.BeginForm("SignUp", "Account", FormMethod.Post, new { @class = "register-form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.TextBoxFor(x => x.Name, new { @placeholder = "User Name" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                <button type="submit">Register</button>
+                <p class="message">Already Registered?@Html.ActionLink("Login", "SignIn", "Account")</p>
+
+            }
+        </div>
+    </div>
+    <div>
+        <footer class="TradeMark">
+            <p>2020 &copy; The Brownie Bakery By ADITYA BHATT</p>
+        </footer>
+    </div>
+</body>
+</html>
