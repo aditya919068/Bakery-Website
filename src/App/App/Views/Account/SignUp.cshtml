@@ -23,6 +23,14 @@
                 @Html.AntiForgeryToken()
                 @Html.TextBoxFor(x => x.Name, new { @placeholder = "User Name" })
                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.PasswordFor(x => x.Password, new { @placeholder = "Password" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(x => x.Phone, new { @placeholder = "Phone Number" })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(x => x.Address, new { @placeholder = "Address" })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                 <button type="submit">Register</button>
                 <p class="message">Already Registered?@Html.ActionLink("Login", "SignIn", "Account")</p>
 

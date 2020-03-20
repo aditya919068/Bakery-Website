@@ -36,7 +36,10 @@ namespace App.Controllers
         [HttpPost]
         public ActionResult SignIn(SignInModel signIn)
         {
+            if (ModelState.IsValid)
+            {
 
+            }
             return View();
         }
     }
