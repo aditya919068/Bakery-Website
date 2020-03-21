@@ -140,10 +140,19 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\menu.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\card_eight.jpg" />
+    <Content Include="images\card_five.jpg" />
+    <Content Include="images\card_four.jpg" />
+    <Content Include="images\card_one.jpg" />
+    <Content Include="images\card_seven.jpg" />
+    <Content Include="images\card_six.jpg" />
+    <Content Include="images\card_three.jpg" />
+    <Content Include="images\card_two.jpg" />
     <Content Include="images\HomePage_Image.jpg" />
     <Content Include="images\icon.ico" />
     <Content Include="images\Login_signup.jpg" />
@@ -163,6 +172,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\script.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

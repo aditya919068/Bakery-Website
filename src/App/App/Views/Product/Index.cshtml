@@ -1,23 +1,41 @@
-﻿@model IList<App.Models.ProductModel>
+﻿@*@model IList<App.Models.ProductModel>*@
 
 @{
-    ViewBag.Title = "Product List";
+    Layout = null;
+    ViewBag.Title = "Menu";
 }
 
-@using (Html.BeginForm("Index", "Product", FormMethod.Get))
-{
-    <div class="search-form">
-        @Html.TextBox("keyword", ViewBag.keyword as string, new { @placeholder = "Search ...", @name = "keyword" })
-
-        <button type="submit" class="btn btn-ClicktoOrder">Search</button>
-    </div>
-}
-
-@if (Model != null)
-{
-    foreach (var item in Model)
+@*@using (Html.BeginForm("Index", "Product", FormMethod.Get))
     {
-        <spam>@item.Name</spam> <br />
-    }
+        <div class="search-form">
+            @Html.TextBox("keyword", ViewBag.keyword as string, new { @placeholder = "Search ...", @name = "keyword" })
 
-}
+            <button type="submit" class="btn btn-ClicktoOrder">Search</button>
+        </div>
+    }*@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+    @Styles.Render("~/Content/menucss")
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="main-wrapper">
+        <div class="header"><h1>MENU</h1></div>
+        <div id="vue">
+            <cart :cart="cart" :cart-sub-total="cartSubTotal" :tax="tax" :cart-total="cartTotal" :checkout-bool="checkoutBool"></cart>
+            <products :cart="cart" :cart-sub-total="cartSubTotal" :tax="tax" :cart-total="cartTotal" :products-data="productsData"></products>
+            <checkout-area v-if="checkoutBool" :cart="cart" :tax="tax" :cart-sub-total="cartSubTotal" :cart-total="cartTotal" :products-data="productsData" :total-with-tax="totalWithTax"></checkout-area>
+        </div>
+    </div>
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.11/vue.js'>
+    </script>
+    @Scripts.Render("~/bundles/menujs")
+
+</body>
+</html>
