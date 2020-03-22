@@ -400,9 +400,27 @@ Vue.component('checkout-area', {
 
         checkoutModal: function () {
             var self = this;
-            self.showModal = true;
-
-            console.log("CHECKOUT", self.cartTotal);
+            self.showModal = false;
+            var product = [];
+            $.each(self.cart, function (index, item) {
+                product.push({ Id: item.sku, Name: item.product, Qty: item.quantity, Price: item.price });
+            });
+            var order = { Products: product, Total: self.cartTotal, SubTotal: self.cartSubTotal, Tax: (vue.tax * vue.cartSubTotal) };
+           var orderStr= JSON.stringify({ items: order })
+            $.ajax({
+                type: 'POST',
+                url: 'Order/Create',
+                data: orderStr,
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    self.showModal = true;
+                },
+                error: function (err) {
+                    console.log(err.responseText);
+                }
+            });
+            console.log("CHECKOUT", orderStr);
 
         },
 

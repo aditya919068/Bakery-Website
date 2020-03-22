@@ -11,5 +11,7 @@ namespace App.Models
         public string Name { get; set; }
         public string Src { get; set; }
         public string Desc { get; set; }
+        public int Qty { get; set; }
+        public decimal Price { get; set; }
     }
 }

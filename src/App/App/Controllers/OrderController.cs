@@ -1,4 +1,6 @@
-﻿using System;
+﻿using App.Models;
+using App.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,69 +22,39 @@ namespace App.Controllers
             return View();
         }
 
-        // GET: Order/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Order/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public JsonResult Create(OrderModel items)
         {
-            try
+            if (Session["user"] == null)
             {
-                // TODO: Add insert logic here
+                return Json("Please login first!", JsonRequestBehavior.AllowGet);
+            
 
-                return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
-            }
-        }
+                if (items != null)
+                {
+                    var user = (SignUpModel)Session["user"];
+                    items.Id = ProductHelper.GetUniqueKey();
+                    items.OrderDate = DateTime.Now;
+                    items.DeliveryDate = DateTime.Now;
+                    items.Status = "Order Delivered";
+                    items.UserId = user.Id;
+                    items.UserName = user.Name;
+                    items.Address = user.Address;
+                    using (var context = new DBContext())
+                    {
+                        context.Orders.InsertOne(items);
+                    }
+                        return Json("Done", JsonRequestBehavior.AllowGet);
+                }
+                else
+                {
+                    return Json("Invalid items", JsonRequestBehavior.AllowGet);
+                }
 
-        // GET: Order/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Order/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Order/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Order/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                
             }
         }
     }

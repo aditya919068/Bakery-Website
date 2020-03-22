@@ -1,4 +1,6 @@
 ﻿using App.Models;
+using App.Utilities;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,11 @@ namespace App.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IMongoDatabase _database;
+        public AccountController()
+        {
+
+        }
         // GET: Account
         public ActionResult SignUp()
         {
@@ -20,6 +27,22 @@ namespace App.Controllers
         {
             if (ModelState.IsValid)
             {
+                signUp.Id = ProductHelper.GetUniqueKey();
+                using (var context = new DBContext())
+                {
+                    var user = context.Users.Find(x => x.Email == signUp.Email).FirstOrDefault();
+                    if (user != null)
+                    {
+
+                        ViewBag.Message = "User already exists!";
+                    }
+                    else
+                    {
+                        context.Users.InsertOne(signUp);
+                        ViewBag.Message = "You have been registered successfully!";
+
+                    }
+                }
 
             }
 
@@ -27,10 +50,7 @@ namespace App.Controllers
         }
         public ActionResult SignIn()
         {
-            if (ModelState.IsValid)
-            {
 
-            }
             return View();
         }
         [HttpPost]
@@ -38,7 +58,20 @@ namespace App.Controllers
         {
             if (ModelState.IsValid)
             {
+                using (var context = new DBContext())
+                {
+                    var user = context.Users.Find(x => x.Email == signIn.Email && x.Password == signIn.Password).FirstOrDefault();
+                    if (user != null)
+                    {
+                        Session["user"] = user;
+                        return RedirectToAction("Index", "Product");
+                    }
+                    else
+                    {
+                        ViewBag.Message = "Invalid credentials";
 
+                    }
+                }
             }
             return View();
         }

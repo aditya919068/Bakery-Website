@@ -8,6 +8,7 @@ namespace App.Models
 {
     public class SignUpModel
     {
+        public string Id { get; set; }
         [Required(ErrorMessage = "Name is required")]
         [MaxLength(50, ErrorMessage = "Name should not be gratter then 50 characters")]
         public string Name { get; set; }

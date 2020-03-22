@@ -66,22 +66,26 @@ namespace App.Utilities
                     Name="ABC8",
                     Src="~/images/Login_signup.jpg",
                     Desc="demo"
-                },
-                new ProductModel
-                {
-                    Id=9,
-                    Name="ABC9",
-                    Src="~/images/Login_signup.jpg",
-                    Desc="demo"
-                },
-                new ProductModel
-                {
-                    Id=10,
-                    Name="ABC10",
-                    Src="~/images/Login_signup.jpg",
-                    Desc="demo"
                 }
             };
+        }
+
+        public static string GetUniqueKey(int length = 32)
+        {
+            string result = string.Empty;
+
+            while (result.Length < length)
+            {
+                // Get the GUID.
+                result += Guid.NewGuid().ToString().GetHashCode().ToString("x");
+            }
+
+            // Make sure length is valid.
+            if (length <= 0 || length > result.Length)
+                throw new ArgumentException("Length must be between 1 and " + result.Length);
+
+            // Return the first length bytes.
+            return result.Substring(0, length);
         }
     }
 }
