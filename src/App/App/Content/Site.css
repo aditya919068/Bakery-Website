@@ -297,3 +297,28 @@ p {
 .my-large-font {
     font-size: 195% !important;
 }
+.aboutUs-body {
+    background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('../images/about_us.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+
+.my-h2 {
+    text-align: center;
+    padding: 2% 1% 1%;
+    margin: auto;
+    font-size: 40px;
+    font-stretch: 30px;
+    white-space: nowrap;
+    color: white;
+}
+
+.my-h1 {
+    font-size: 20px;
+    margin: 10px;
+    font-weight:bold !important;
+    word-spacing:0px !important;
+}
