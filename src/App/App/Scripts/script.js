@@ -351,8 +351,8 @@ Vue.component('checkout-area', {
         "<h3> Subtotal: {{ cartSubTotal | currency:'INR':'code' }} </h3>" +
         "<h3> Tax: {{ cartTotal - cartSubTotal | currency:'INR':'code'}} </h4>" +
         "<h1> Total: {{ cartTotal | currency({ useVedic: true }).format() }} </h3>" +
-        "<br><div>CURRENTLY WE ONLY SUPPORY CASH ON DELIVERY</div>" +
-        "<br><div>YOUR FOOD WILL BE DELIVERED TO YOU HOME ADDRESS.</div>" +
+        "<br><div>CURRENTLY WE ONLY SUPPORT CASH ON DELIVERY</div>" +
+        "<br><div>YOUR FOOD WILL BE DELIVERED TO YOUR HOME ADDRESS.</div>" +
         "<br><h3><b> ENJOY!!!</b> </h4>" +
         "</div>",
 

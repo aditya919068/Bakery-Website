@@ -39,7 +39,8 @@ namespace App.Controllers
                     else
                     {
                         context.Users.InsertOne(signUp);
-                        ViewBag.Message = "You have been registered successfully!";
+                        Session["user"] = signUp;
+                        return RedirectToAction("Index", "Product");
 
                     }
                 }
